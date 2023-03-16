@@ -1,0 +1,40 @@
+{
+  "name": "eo-core",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "eo-core/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["eo-core/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/eo-core"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/eo-core"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../coverage/eo-core"
+      }
+    }
+  }
+}
